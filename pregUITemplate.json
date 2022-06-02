@@ -1,0 +1,2658 @@
+{
+  "interviewTitle": "Pregnancy Claim",
+  "screens": [
+    {
+      "title": "1. Delivery Info",
+      "id": "DeliveryInfo",
+      "progress": 20,
+      "allowSave": false,
+      "sections": [
+        {
+          "id": "HaveYouDelivered",
+          "header": "Have you delivered yet?",
+          "footer": null,
+          "rows": [
+            {
+              "id": "HaveYouDeliveredAnswer",
+              "title": null,
+              "rowType": 0,
+              "text": [
+                "No",
+                "Yes"
+              ],
+              "answer": "",
+              "helpText": null,
+              "placeHolder": null,
+              "editable": true,
+              "validationData": [
+                {
+                  "type": 5,
+                  "matchValue": null,
+                  "matchField": null,
+                  "id": null,
+                  "validationText": "Field is required",
+                  "orValidations": null
+                }
+              ],
+              "visibility": null,
+              "refreshClaim": false
+            },
+            {
+              "id": "IsPolicyHolderAndGaveBirthCertification",
+              "title": "I certify that this claim is for Lynna Allen and that I personally gave birth to a child, resulting in this disability claim.",
+              "rowType": 1,
+              "text": null,
+              "answer": "false",
+              "helpText": null,
+              "placeHolder": null,
+              "editable": true,
+              "validationData": [
+                {
+                  "type": 1,
+                  "matchValue": "true",
+                  "matchField": null,
+                  "id": null,
+                  "validationText": "Confirmation is required",
+                  "orValidations": null
+                }
+              ],
+              "visibility": null,
+              "refreshClaim": false
+            },
+            {
+              "id": "DeliveryDate",
+              "title": "Delivery Date",
+              "rowType": 4,
+              "text": null,
+              "answer": "",
+              "helpText": null,
+              "placeHolder": null,
+              "editable": true,
+              "validationData": [
+                {
+                  "type": 4,
+                  "matchValue": "2022-05-07T00:00:00",
+                  "matchField": null,
+                  "id": "NewestDeliveryDate",
+                  "validationText": "Delivery date can't be in the future. Please file a claim after you have delivered.",
+                  "orValidations": null
+                },
+                {
+                  "type": 5,
+                  "matchValue": null,
+                  "matchField": null,
+                  "id": null,
+                  "validationText": "Field is required",
+                  "orValidations": null
+                }
+              ],
+              "visibility": {
+                "isVisible": true,
+                "condition": [
+                  {
+                    "type": 1,
+                    "matchValue": "Yes",
+                    "matchField": "HaveYouDeliveredAnswer",
+                    "id": null,
+                    "validationText": null,
+                    "orValidations": null
+                  }
+                ]
+              },
+              "refreshClaim": true
+            },
+            {
+              "id": "DeliveryType",
+              "title": "Type of Delivery",
+              "rowType": 0,
+              "text": [
+                "Vaginal",
+                "C-Section"
+              ],
+              "answer": "",
+              "helpText": null,
+              "placeHolder": null,
+              "editable": true,
+              "validationData": [
+                {
+                  "type": 5,
+                  "matchValue": null,
+                  "matchField": null,
+                  "id": null,
+                  "validationText": "Field is required",
+                  "orValidations": null
+                }
+              ],
+              "visibility": {
+                "isVisible": true,
+                "condition": [
+                  {
+                    "type": 1,
+                    "matchValue": "Yes",
+                    "matchField": "HaveYouDeliveredAnswer",
+                    "id": null,
+                    "validationText": null,
+                    "orValidations": null
+                  }
+                ]
+              },
+              "refreshClaim": true
+            }
+          ],
+          "helpText": null,
+          "visibility": null
+        },
+        {
+          "id": "DeliveryInfoNotYetDeliveredWarning",
+          "header": null,
+          "footer": null,
+          "rows": [
+            {
+              "id": "DeliveryInfoNotYetDeliveredWarningText",
+              "title": null,
+              "rowType": 7,
+              "text": [
+                "We cannot process your pregnancy claim until after you deliver. If you stopped working due to a complication of pregnancy, you may file a Disability Claim."
+              ],
+              "answer": "",
+              "helpText": null,
+              "placeHolder": null,
+              "editable": true,
+              "validationData": null,
+              "visibility": null,
+              "refreshClaim": false
+            },
+            {
+              "id": "DiFlowButton",
+              "title": "File a Disability Claim",
+              "rowType": 6,
+              "text": null,
+              "answer": "",
+              "helpText": null,
+              "placeHolder": null,
+              "editable": true,
+              "validationData": [
+                {
+                  "type": 6,
+                  "matchValue": null,
+                  "matchField": null,
+                  "id": null,
+                  "validationText": null,
+                  "orValidations": null
+                }
+              ],
+              "visibility": null,
+              "refreshClaim": false
+            }
+          ],
+          "helpText": null,
+          "visibility": {
+            "isVisible": true,
+            "condition": [
+              {
+                "type": 1,
+                "matchValue": "No",
+                "matchField": "HaveYouDeliveredAnswer",
+                "id": null,
+                "validationText": null,
+                "orValidations": null
+              }
+            ]
+          }
+        },
+        {
+          "id": "DeliveryInfoDateNoMatchWarning",
+          "header": null,
+          "footer": null,
+          "rows": [
+            {
+              "id": "DeliveryInfoDateNoMatchWarningText",
+              "title": null,
+              "rowType": 7,
+              "text": [
+                "Please verify the delivery date. We cannot find an active policy for that date. If you feel this is in error, please call 800-622-1113."
+              ],
+              "answer": "",
+              "helpText": null,
+              "placeHolder": null,
+              "editable": true,
+              "validationData": null,
+              "visibility": null,
+              "refreshClaim": false
+            },
+            {
+              "id": "TelCallButton",
+              "title": "Call 800-622-1113",
+              "rowType": 6,
+              "text": [
+                "tel:8006221113"
+              ],
+              "answer": "",
+              "helpText": null,
+              "placeHolder": null,
+              "editable": true,
+              "validationData": [
+                {
+                  "type": 6,
+                  "matchValue": null,
+                  "matchField": null,
+                  "id": null,
+                  "validationText": null,
+                  "orValidations": null
+                }
+              ],
+              "visibility": null,
+              "refreshClaim": false
+            }
+          ],
+          "helpText": null,
+          "visibility": {
+            "isVisible": false,
+            "condition": null
+          }
+        }
+      ]
+    },
+    {
+      "title": null,
+      "id": "DiFallback",
+      "progress": 0,
+      "allowSave": true,
+      "sections": [
+        {
+          "id": "DiFallbackSection",
+          "header": null,
+          "footer": null,
+          "rows": [
+            {
+              "id": "DiRedirect",
+              "title": null,
+              "rowType": 15,
+              "text": null,
+              "answer": "Alert",
+              "helpText": null,
+              "placeHolder": null,
+              "editable": true,
+              "validationData": null,
+              "visibility": null,
+              "refreshClaim": false
+            }
+          ],
+          "helpText": null,
+          "visibility": {
+            "isVisible": true,
+            "condition": [
+              {
+                "type": 4,
+                "matchValue": "2020-05-06T00:00:00",
+                "matchField": "DeliveryDate",
+                "id": null,
+                "validationText": null,
+                "orValidations": null
+              },
+              {
+                "type": 5,
+                "matchValue": null,
+                "matchField": "DeliveryDate",
+                "id": null,
+                "validationText": null,
+                "orValidations": null
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "1. Delivery Info",
+      "id": "DeliveryInfoComplications",
+      "progress": 20,
+      "allowSave": false,
+      "sections": [
+        {
+          "id": "StoppedDueToComplications",
+          "header": "Did you stop working before delivery due to complications of pregnancy?",
+          "footer": null,
+          "rows": [
+            {
+              "id": "StoppedDueToComplicationsAnswer",
+              "title": null,
+              "rowType": 0,
+              "text": [
+                "No",
+                "Yes"
+              ],
+              "answer": "",
+              "helpText": null,
+              "placeHolder": null,
+              "editable": true,
+              "validationData": [
+                {
+                  "type": 5,
+                  "matchValue": null,
+                  "matchField": null,
+                  "id": null,
+                  "validationText": "Field is required",
+                  "orValidations": null
+                }
+              ],
+              "visibility": null,
+              "refreshClaim": false
+            }
+          ],
+          "helpText": null,
+          "visibility": null
+        },
+        {
+          "id": "ExtendedRecoveryDueToComplicationsVaginal",
+          "header": "Were there complications that will extend your recovery more than 6 weeks beyond your delivery date?",
+          "footer": null,
+          "rows": [
+            {
+              "id": "ExtendedRecoveryDueToComplicationsAnswer",
+              "title": null,
+              "rowType": 0,
+              "text": [
+                "No",
+                "Yes"
+              ],
+              "answer": "",
+              "helpText": null,
+              "placeHolder": null,
+              "editable": true,
+              "validationData": [
+                {
+                  "type": 5,
+                  "matchValue": null,
+                  "matchField": null,
+                  "id": null,
+                  "validationText": "Field is required",
+                  "orValidations": null
+                }
+              ],
+              "visibility": null,
+              "refreshClaim": false
+            }
+          ],
+          "helpText": null,
+          "visibility": {
+            "isVisible": true,
+            "condition": [
+              {
+                "type": 1,
+                "matchValue": "No",
+                "matchField": "StoppedDueToComplicationsAnswer",
+                "id": null,
+                "validationText": null,
+                "orValidations": null
+              },
+              {
+                "type": 1,
+                "matchValue": "Vaginal",
+                "matchField": "DeliveryType",
+                "id": null,
+                "validationText": null,
+                "orValidations": null
+              }
+            ]
+          }
+        },
+        {
+          "id": "ExtendedRecoveryDueToComplicationsCsection",
+          "header": "Were there complications that will extend your recovery more than 8 weeks beyond your delivery date?",
+          "footer": null,
+          "rows": [
+            {
+              "id": "ExtendedRecoveryDueToComplicationsAnswer",
+              "title": null,
+              "rowType": 0,
+              "text": [
+                "No",
+                "Yes"
+              ],
+              "answer": "",
+              "helpText": null,
+              "placeHolder": null,
+              "editable": true,
+              "validationData": [
+                {
+                  "type": 5,
+                  "matchValue": null,
+                  "matchField": null,
+                  "id": null,
+                  "validationText": "Field is required",
+                  "orValidations": null
+                }
+              ],
+              "visibility": null,
+              "refreshClaim": false
+            }
+          ],
+          "helpText": null,
+          "visibility": {
+            "isVisible": true,
+            "condition": [
+              {
+                "type": 1,
+                "matchValue": "No",
+                "matchField": "StoppedDueToComplicationsAnswer",
+                "id": null,
+                "validationText": null,
+                "orValidations": null
+              },
+              {
+                "type": 1,
+                "matchValue": "C-Section",
+                "matchField": "DeliveryType",
+                "id": null,
+                "validationText": null,
+                "orValidations": null
+              }
+            ]
+          }
+        },
+        {
+          "id": "WillReturnToWork",
+          "header": "Did you or do you plan to return to work before 7/1/2022?",
+          "footer": null,
+          "rows": [
+            {
+              "id": "WillReturnToWorkAnswer",
+              "title": null,
+              "rowType": 0,
+              "text": [
+                "No",
+                "Yes"
+              ],
+              "answer": "",
+              "helpText": null,
+              "placeHolder": null,
+              "editable": true,
+              "validationData": [
+                {
+                  "type": 5,
+                  "matchValue": null,
+                  "matchField": null,
+                  "id": null,
+                  "validationText": "Field is required",
+                  "orValidations": null
+                }
+              ],
+              "visibility": null,
+              "refreshClaim": false
+            },
+            {
+              "id": "ReturnToWorkDate",
+              "title": "Return to work date",
+              "rowType": 4,
+              "text": null,
+              "answer": "",
+              "helpText": null,
+              "placeHolder": null,
+              "editable": true,
+              "validationData": [
+                {
+                  "type": 3,
+                  "matchValue": "2022-05-07T00:00:00",
+                  "matchField": null,
+                  "id": null,
+                  "validationText": "Return to work date must be after  and before 7/1/2022",
+                  "orValidations": null
+                },
+                {
+                  "type": 4,
+                  "matchValue": "2022-07-01T15:16:16",
+                  "matchField": null,
+                  "id": null,
+                  "validationText": "Return to work date must be after  and before 7/1/2022",
+                  "orValidations": null
+                },
+                {
+                  "type": 5,
+                  "matchValue": null,
+                  "matchField": null,
+                  "id": null,
+                  "validationText": "Field is required",
+                  "orValidations": null
+                }
+              ],
+              "visibility": {
+                "isVisible": true,
+                "condition": [
+                  {
+                    "type": 1,
+                    "matchValue": "Yes",
+                    "matchField": "WillReturnToWorkAnswer",
+                    "id": null,
+                    "validationText": null,
+                    "orValidations": null
+                  }
+                ]
+              },
+              "refreshClaim": true
+            }
+          ],
+          "helpText": null,
+          "visibility": {
+            "isVisible": true,
+            "condition": [
+              {
+                "type": 1,
+                "matchValue": "No",
+                "matchField": "StoppedDueToComplicationsAnswer",
+                "id": null,
+                "validationText": null,
+                "orValidations": null
+              },
+              {
+                "type": 1,
+                "matchValue": "No",
+                "matchField": "ExtendedRecoveryDueToComplicationsAnswer",
+                "id": null,
+                "validationText": null,
+                "orValidations": null
+              }
+            ]
+          }
+        },
+        {
+          "id": "DiagnosisDateSecion",
+          "header": null,
+          "footer": null,
+          "rows": [
+            {
+              "id": "DiagnosisDate",
+              "title": "Diagnosis Date",
+              "rowType": 4,
+              "text": null,
+              "answer": "",
+              "helpText": "The date you first received confirmation of your pregnancy from a physician. This does not include home pregnancy tests.",
+              "placeHolder": null,
+              "editable": true,
+              "validationData": [
+                {
+                  "type": 4,
+                  "matchValue": "2022-05-07T00:00:00",
+                  "matchField": null,
+                  "id": null,
+                  "validationText": "Diagnosis date can't be in the future",
+                  "orValidations": null
+                },
+                {
+                  "type": 5,
+                  "matchValue": null,
+                  "matchField": null,
+                  "id": null,
+                  "validationText": "Field is required",
+                  "orValidations": null
+                }
+              ],
+              "visibility": {
+                "isVisible": false,
+                "condition": [
+                  {
+                    "type": 1,
+                    "matchValue": "No",
+                    "matchField": "StoppedDueToComplicationsAnswer",
+                    "id": null,
+                    "validationText": null,
+                    "orValidations": null
+                  },
+                  {
+                    "type": 1,
+                    "matchValue": "No",
+                    "matchField": "ExtendedRecoveryDueToComplicationsAnswer",
+                    "id": null,
+                    "validationText": null,
+                    "orValidations": null
+                  }
+                ]
+              },
+              "refreshClaim": false
+            }
+          ],
+          "helpText": null,
+          "visibility": null
+        },
+        {
+          "id": "DiFallbackInfoText",
+          "header": null,
+          "footer": null,
+          "rows": [
+            {
+              "id": "DiFallbackInfoTextWarning",
+              "title": null,
+              "rowType": 7,
+              "text": [
+                "You've been sent to the disability claim form for pregnancy."
+              ],
+              "answer": "",
+              "helpText": null,
+              "placeHolder": null,
+              "editable": true,
+              "validationData": null,
+              "visibility": null,
+              "refreshClaim": false
+            }
+          ],
+          "helpText": null,
+          "visibility": {
+            "isVisible": true,
+            "condition": [
+              {
+                "type": 1,
+                "matchValue": "Yes",
+                "matchField": "StoppedDueToComplicationsAnswer",
+                "id": null,
+                "validationText": null,
+                "orValidations": null
+              }
+            ]
+          }
+        },
+        {
+          "id": "DiFallbackDocsInfo",
+          "header": "Documents Needed to File Your Claim",
+          "footer": null,
+          "rows": [
+            {
+              "id": "DiFallbackInfoDocTitle",
+              "title": null,
+              "rowType": 10,
+              "text": [
+                "Your employer and physician need to complete their statements in order for your claim to be processed."
+              ],
+              "answer": "",
+              "helpText": null,
+              "placeHolder": null,
+              "editable": true,
+              "validationData": null,
+              "visibility": null,
+              "refreshClaim": false
+            },
+            {
+              "id": "DiFallbackInfoPhysStatementLink",
+              "title": "Attending Physician Statement",
+              "rowType": 12,
+              "text": [
+                "https://americanfidelity.com/media/1179/bn-658-physician-statement.pdf"
+              ],
+              "answer": "",
+              "helpText": null,
+              "placeHolder": null,
+              "editable": true,
+              "validationData": null,
+              "visibility": null,
+              "refreshClaim": false
+            },
+            {
+              "id": "DiFallbackInfoEmployerStatementLink",
+              "title": "Employer Statement",
+              "rowType": 12,
+              "text": [
+                "https://americanfidelity.com/media/1180/bn-658-employer-statement.pdf"
+              ],
+              "answer": "",
+              "helpText": null,
+              "placeHolder": null,
+              "editable": true,
+              "validationData": null,
+              "visibility": null,
+              "refreshClaim": false
+            },
+            {
+              "id": "DiFallbackInfoAddInfoNote",
+              "title": null,
+              "rowType": 13,
+              "text": [
+                "If we have to request additional information from a medical provider you will also need to complete an Authorization to Disclose Information Form."
+              ],
+              "answer": "",
+              "helpText": null,
+              "placeHolder": null,
+              "editable": true,
+              "validationData": null,
+              "visibility": null,
+              "refreshClaim": false
+            },
+            {
+              "id": "DiFallbackInfoAddInfoLink",
+              "title": "Authorization to Disclose Information Form",
+              "rowType": 12,
+              "text": [
+                "https://americanfidelity.com/media/1103/m-3621.pdf"
+              ],
+              "answer": "",
+              "helpText": null,
+              "placeHolder": null,
+              "editable": true,
+              "validationData": null,
+              "visibility": null,
+              "refreshClaim": false
+            },
+            {
+              "id": "DiFlowButton",
+              "title": "I'm ready to upload documents.",
+              "rowType": 6,
+              "text": null,
+              "answer": "",
+              "helpText": null,
+              "placeHolder": null,
+              "editable": true,
+              "validationData": [
+                {
+                  "type": 6,
+                  "matchValue": null,
+                  "matchField": null,
+                  "id": null,
+                  "validationText": null,
+                  "orValidations": null
+                }
+              ],
+              "visibility": null,
+              "refreshClaim": false
+            }
+          ],
+          "helpText": null,
+          "visibility": {
+            "isVisible": true,
+            "condition": [
+              {
+                "type": 1,
+                "matchValue": "Yes",
+                "matchField": "StoppedDueToComplicationsAnswer",
+                "id": null,
+                "validationText": null,
+                "orValidations": null
+              }
+            ]
+          }
+        },
+        {
+          "id": "DiFallbackInfoText",
+          "header": null,
+          "footer": null,
+          "rows": [
+            {
+              "id": "DiFallbackInfoTextWarning",
+              "title": null,
+              "rowType": 7,
+              "text": [
+                "You've been sent to the disability claim form for pregnancy."
+              ],
+              "answer": "",
+              "helpText": null,
+              "placeHolder": null,
+              "editable": true,
+              "validationData": null,
+              "visibility": null,
+              "refreshClaim": false
+            }
+          ],
+          "helpText": null,
+          "visibility": {
+            "isVisible": true,
+            "condition": [
+              {
+                "type": 1,
+                "matchValue": "Yes",
+                "matchField": "ExtendedRecoveryDueToComplicationsAnswer",
+                "id": null,
+                "validationText": null,
+                "orValidations": null
+              }
+            ]
+          }
+        },
+        {
+          "id": "DiFallbackDocsInfo",
+          "header": "Documents Needed to File Your Claim",
+          "footer": null,
+          "rows": [
+            {
+              "id": "DiFallbackInfoDocTitle",
+              "title": null,
+              "rowType": 10,
+              "text": [
+                "Your employer and physician need to complete their statements in order for your claim to be processed."
+              ],
+              "answer": "",
+              "helpText": null,
+              "placeHolder": null,
+              "editable": true,
+              "validationData": null,
+              "visibility": null,
+              "refreshClaim": false
+            },
+            {
+              "id": "DiFallbackInfoPhysStatementLink",
+              "title": "Attending Physician Statement",
+              "rowType": 12,
+              "text": [
+                "https://americanfidelity.com/media/1179/bn-658-physician-statement.pdf"
+              ],
+              "answer": "",
+              "helpText": null,
+              "placeHolder": null,
+              "editable": true,
+              "validationData": null,
+              "visibility": null,
+              "refreshClaim": false
+            },
+            {
+              "id": "DiFallbackInfoEmployerStatementLink",
+              "title": "Employer Statement",
+              "rowType": 12,
+              "text": [
+                "https://americanfidelity.com/media/1180/bn-658-employer-statement.pdf"
+              ],
+              "answer": "",
+              "helpText": null,
+              "placeHolder": null,
+              "editable": true,
+              "validationData": null,
+              "visibility": null,
+              "refreshClaim": false
+            },
+            {
+              "id": "DiFallbackInfoAddInfoNote",
+              "title": null,
+              "rowType": 13,
+              "text": [
+                "If we have to request additional information from a medical provider you will also need to complete an Authorization to Disclose Information Form."
+              ],
+              "answer": "",
+              "helpText": null,
+              "placeHolder": null,
+              "editable": true,
+              "validationData": null,
+              "visibility": null,
+              "refreshClaim": false
+            },
+            {
+              "id": "DiFallbackInfoAddInfoLink",
+              "title": "Authorization to Disclose Information Form",
+              "rowType": 12,
+              "text": [
+                "https://americanfidelity.com/media/1103/m-3621.pdf"
+              ],
+              "answer": "",
+              "helpText": null,
+              "placeHolder": null,
+              "editable": true,
+              "validationData": null,
+              "visibility": null,
+              "refreshClaim": false
+            },
+            {
+              "id": "DiFlowButton",
+              "title": "I'm ready to upload documents.",
+              "rowType": 6,
+              "text": null,
+              "answer": "",
+              "helpText": null,
+              "placeHolder": null,
+              "editable": true,
+              "validationData": [
+                {
+                  "type": 6,
+                  "matchValue": null,
+                  "matchField": null,
+                  "id": null,
+                  "validationText": null,
+                  "orValidations": null
+                }
+              ],
+              "visibility": null,
+              "refreshClaim": false
+            }
+          ],
+          "helpText": null,
+          "visibility": {
+            "isVisible": true,
+            "condition": [
+              {
+                "type": 1,
+                "matchValue": "Yes",
+                "matchField": "ExtendedRecoveryDueToComplicationsAnswer",
+                "id": null,
+                "validationText": null,
+                "orValidations": null
+              }
+            ]
+          }
+        },
+        {
+          "id": "DiFallbackInfoText",
+          "header": null,
+          "footer": null,
+          "rows": [
+            {
+              "id": "DiFallbackInfoTextWarning",
+              "title": null,
+              "rowType": 7,
+              "text": [
+                "You've been sent to the disability claim form for pregnancy."
+              ],
+              "answer": "",
+              "helpText": null,
+              "placeHolder": null,
+              "editable": true,
+              "validationData": null,
+              "visibility": null,
+              "refreshClaim": false
+            }
+          ],
+          "helpText": null,
+          "visibility": {
+            "isVisible": true,
+            "condition": [
+              {
+                "type": 1,
+                "matchValue": "Yes",
+                "matchField": "ExtendedRecoveryDueToComplicationsAnswer2",
+                "id": null,
+                "validationText": null,
+                "orValidations": null
+              }
+            ]
+          }
+        },
+        {
+          "id": "DiFallbackDocsInfo",
+          "header": "Documents Needed to File Your Claim",
+          "footer": null,
+          "rows": [
+            {
+              "id": "DiFallbackInfoDocTitle",
+              "title": null,
+              "rowType": 10,
+              "text": [
+                "Your employer and physician need to complete their statements in order for your claim to be processed."
+              ],
+              "answer": "",
+              "helpText": null,
+              "placeHolder": null,
+              "editable": true,
+              "validationData": null,
+              "visibility": null,
+              "refreshClaim": false
+            },
+            {
+              "id": "DiFallbackInfoPhysStatementLink",
+              "title": "Attending Physician Statement",
+              "rowType": 12,
+              "text": [
+                "https://americanfidelity.com/media/1179/bn-658-physician-statement.pdf"
+              ],
+              "answer": "",
+              "helpText": null,
+              "placeHolder": null,
+              "editable": true,
+              "validationData": null,
+              "visibility": null,
+              "refreshClaim": false
+            },
+            {
+              "id": "DiFallbackInfoEmployerStatementLink",
+              "title": "Employer Statement",
+              "rowType": 12,
+              "text": [
+                "https://americanfidelity.com/media/1180/bn-658-employer-statement.pdf"
+              ],
+              "answer": "",
+              "helpText": null,
+              "placeHolder": null,
+              "editable": true,
+              "validationData": null,
+              "visibility": null,
+              "refreshClaim": false
+            },
+            {
+              "id": "DiFallbackInfoAddInfoNote",
+              "title": null,
+              "rowType": 13,
+              "text": [
+                "If we have to request additional information from a medical provider you will also need to complete an Authorization to Disclose Information Form."
+              ],
+              "answer": "",
+              "helpText": null,
+              "placeHolder": null,
+              "editable": true,
+              "validationData": null,
+              "visibility": null,
+              "refreshClaim": false
+            },
+            {
+              "id": "DiFallbackInfoAddInfoLink",
+              "title": "Authorization to Disclose Information Form",
+              "rowType": 12,
+              "text": [
+                "https://americanfidelity.com/media/1103/m-3621.pdf"
+              ],
+              "answer": "",
+              "helpText": null,
+              "placeHolder": null,
+              "editable": true,
+              "validationData": null,
+              "visibility": null,
+              "refreshClaim": false
+            },
+            {
+              "id": "DiFlowButton",
+              "title": "I'm ready to upload documents.",
+              "rowType": 6,
+              "text": null,
+              "answer": "",
+              "helpText": null,
+              "placeHolder": null,
+              "editable": true,
+              "validationData": [
+                {
+                  "type": 6,
+                  "matchValue": null,
+                  "matchField": null,
+                  "id": null,
+                  "validationText": null,
+                  "orValidations": null
+                }
+              ],
+              "visibility": null,
+              "refreshClaim": false
+            }
+          ],
+          "helpText": null,
+          "visibility": {
+            "isVisible": true,
+            "condition": [
+              {
+                "type": 1,
+                "matchValue": "Yes",
+                "matchField": "ExtendedRecoveryDueToComplicationsAnswer2",
+                "id": null,
+                "validationText": null,
+                "orValidations": null
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "2. Medical Provider",
+      "id": "MedicalProvider",
+      "progress": 40,
+      "allowSave": true,
+      "sections": [
+        {
+          "id": "MedicalProviderInfo",
+          "header": "Primary Medical Care Provider",
+          "footer": null,
+          "rows": [
+            {
+              "id": "MedicalProviderSubtitle",
+              "title": null,
+              "rowType": 10,
+              "text": [
+                "The medical professional that was your primary care giver during pregnancy. ex: OBGYN, midwife"
+              ],
+              "answer": "",
+              "helpText": null,
+              "placeHolder": null,
+              "editable": true,
+              "validationData": null,
+              "visibility": null,
+              "refreshClaim": false
+            },
+            {
+              "id": "SearchPlacesButton",
+              "title": "Search for Providers",
+              "rowType": 6,
+              "text": [
+                "MedicalProviderName",
+                "MedicalProviderAddress",
+                "MedicalProviderCity",
+                "MedicalProviderState",
+                "MedicalProviderZip",
+                "MedicalProviderPhone"
+              ],
+              "answer": "",
+              "helpText": null,
+              "placeHolder": null,
+              "editable": true,
+              "validationData": null,
+              "visibility": null,
+              "refreshClaim": false
+            },
+            {
+              "id": "MedicalProviderName",
+              "title": "Medical Provider's Name",
+              "rowType": 2,
+              "text": null,
+              "answer": "",
+              "helpText": null,
+              "placeHolder": "Dr. Jane Smith",
+              "editable": true,
+              "validationData": [
+                {
+                  "type": 5,
+                  "matchValue": null,
+                  "matchField": null,
+                  "id": null,
+                  "validationText": "Field is required",
+                  "orValidations": null
+                }
+              ],
+              "visibility": null,
+              "refreshClaim": false
+            },
+            {
+              "id": "MedicalProviderAddress",
+              "title": "Address",
+              "rowType": 2,
+              "text": null,
+              "answer": "",
+              "helpText": null,
+              "placeHolder": null,
+              "editable": true,
+              "validationData": [
+                {
+                  "type": 5,
+                  "matchValue": null,
+                  "matchField": null,
+                  "id": null,
+                  "validationText": "Field is required",
+                  "orValidations": null
+                }
+              ],
+              "visibility": null,
+              "refreshClaim": false
+            },
+            {
+              "id": "MedicalProviderCity",
+              "title": "City",
+              "rowType": 2,
+              "text": null,
+              "answer": "",
+              "helpText": null,
+              "placeHolder": null,
+              "editable": true,
+              "validationData": [
+                {
+                  "type": 5,
+                  "matchValue": null,
+                  "matchField": null,
+                  "id": null,
+                  "validationText": "Field is required",
+                  "orValidations": null
+                }
+              ],
+              "visibility": null,
+              "refreshClaim": false
+            },
+            {
+              "id": "MedicalProviderState",
+              "title": "State",
+              "rowType": 5,
+              "text": [
+                "Alabama",
+                "Alaska",
+                "American Samoa",
+                "Arizona",
+                "Arkansas",
+                "California",
+                "Colorado",
+                "Connecticut",
+                "Delaware",
+                "District of Columbia",
+                "Florida",
+                "Georgia",
+                "Guam",
+                "Hawaii",
+                "Idaho",
+                "Illinois",
+                "Indiana",
+                "Iowa",
+                "Kansas",
+                "Kentucky",
+                "Louisiana",
+                "Maine",
+                "Maryland",
+                "Massachusetts",
+                "Michigan",
+                "Minnesota",
+                "Mississippi",
+                "Missouri",
+                "Montana",
+                "Nebraska",
+                "Nevada",
+                "New Hampshire",
+                "New Jersey",
+                "New Mexico",
+                "New York",
+                "North Carolina",
+                "North Dakota",
+                "Northern Mariana Islands",
+                "Ohio",
+                "Oklahoma",
+                "Oregon",
+                "Pennsylvania",
+                "Puerto Rico",
+                "Rhode Island",
+                "South Carolina",
+                "South Dakota",
+                "Tennessee",
+                "Texas",
+                "Utah",
+                "Vermont",
+                "Virgin Islands",
+                "Virginia",
+                "Washington",
+                "West Virginia",
+                "Wisconsin",
+                "Wyoming"
+              ],
+              "answer": "",
+              "helpText": null,
+              "placeHolder": null,
+              "editable": true,
+              "validationData": [
+                {
+                  "type": 5,
+                  "matchValue": null,
+                  "matchField": null,
+                  "id": null,
+                  "validationText": "Field is required",
+                  "orValidations": null
+                }
+              ],
+              "visibility": null,
+              "refreshClaim": false
+            },
+            {
+              "id": "MedicalProviderZip",
+              "title": "Zip Code",
+              "rowType": 3,
+              "text": null,
+              "answer": "",
+              "helpText": null,
+              "placeHolder": null,
+              "editable": true,
+              "validationData": [
+                {
+                  "type": 0,
+                  "matchValue": "[0-9]{5}(-[0-9]{4})?",
+                  "matchField": null,
+                  "id": null,
+                  "validationText": "Invalid Zip",
+                  "orValidations": null
+                }
+              ],
+              "visibility": null,
+              "refreshClaim": false
+            },
+            {
+              "id": "MedicalProviderPhone",
+              "title": "Phone Number",
+              "rowType": 3,
+              "text": null,
+              "answer": "",
+              "helpText": null,
+              "placeHolder": null,
+              "editable": true,
+              "validationData": [
+                {
+                  "type": 0,
+                  "matchValue": "\\(?\\d{3}\\)?[\\s.-]?\\d{3}[\\s.-]?\\d{4}$",
+                  "matchField": null,
+                  "id": null,
+                  "validationText": "Invalid phone. Phone number must be 10 digits.",
+                  "orValidations": null
+                }
+              ],
+              "visibility": null,
+              "refreshClaim": false
+            }
+          ],
+          "helpText": null,
+          "visibility": null
+        }
+      ]
+    },
+    {
+      "title": "3. Hospital Info",
+      "id": "HospitalInfo",
+      "progress": 60,
+      "allowSave": true,
+      "sections": [
+        {
+          "id": "HospitalStayInfo",
+          "header": "I had a hospital stay",
+          "footer": null,
+          "rows": [
+            {
+              "id": "DidHaveHospitalStay",
+              "title": null,
+              "rowType": 0,
+              "text": [
+                "No",
+                "Yes"
+              ],
+              "answer": "",
+              "helpText": null,
+              "placeHolder": null,
+              "editable": true,
+              "validationData": [
+                {
+                  "type": 5,
+                  "matchValue": null,
+                  "matchField": null,
+                  "id": null,
+                  "validationText": "Field is required",
+                  "orValidations": null
+                }
+              ],
+              "visibility": null,
+              "refreshClaim": false
+            }
+          ],
+          "helpText": null,
+          "visibility": null
+        },
+        {
+          "id": "HospitalLocationInfo",
+          "header": "Hospital or Facility Information",
+          "footer": null,
+          "rows": [
+            {
+              "id": "SearchPlacesButton",
+              "title": "Search for Hospitals",
+              "rowType": 6,
+              "text": [
+                "HospitalLocationName",
+                "HospitalLocationAddress",
+                "HospitalLocationCity",
+                "HospitalLocationState",
+                "HospitalLocationZip"
+              ],
+              "answer": "",
+              "helpText": null,
+              "placeHolder": null,
+              "editable": true,
+              "validationData": null,
+              "visibility": null,
+              "refreshClaim": false
+            },
+            {
+              "id": "HospitalLocationName",
+              "title": "Hospital",
+              "rowType": 2,
+              "text": null,
+              "answer": "",
+              "helpText": null,
+              "placeHolder": null,
+              "editable": true,
+              "validationData": [
+                {
+                  "type": 5,
+                  "matchValue": null,
+                  "matchField": null,
+                  "id": null,
+                  "validationText": "Field is required",
+                  "orValidations": null
+                }
+              ],
+              "visibility": null,
+              "refreshClaim": false
+            },
+            {
+              "id": "HospitalLocationAddress",
+              "title": "Address",
+              "rowType": 2,
+              "text": null,
+              "answer": "",
+              "helpText": null,
+              "placeHolder": null,
+              "editable": true,
+              "validationData": [
+                {
+                  "type": 5,
+                  "matchValue": null,
+                  "matchField": null,
+                  "id": null,
+                  "validationText": "Field is required",
+                  "orValidations": null
+                }
+              ],
+              "visibility": null,
+              "refreshClaim": false
+            },
+            {
+              "id": "HospitalLocationCity",
+              "title": "City",
+              "rowType": 2,
+              "text": null,
+              "answer": "",
+              "helpText": null,
+              "placeHolder": null,
+              "editable": true,
+              "validationData": [
+                {
+                  "type": 5,
+                  "matchValue": null,
+                  "matchField": null,
+                  "id": null,
+                  "validationText": "Field is required",
+                  "orValidations": null
+                }
+              ],
+              "visibility": null,
+              "refreshClaim": false
+            },
+            {
+              "id": "HospitalLocationState",
+              "title": "State",
+              "rowType": 5,
+              "text": [
+                "Alabama",
+                "Alaska",
+                "American Samoa",
+                "Arizona",
+                "Arkansas",
+                "California",
+                "Colorado",
+                "Connecticut",
+                "Delaware",
+                "District of Columbia",
+                "Florida",
+                "Georgia",
+                "Guam",
+                "Hawaii",
+                "Idaho",
+                "Illinois",
+                "Indiana",
+                "Iowa",
+                "Kansas",
+                "Kentucky",
+                "Louisiana",
+                "Maine",
+                "Maryland",
+                "Massachusetts",
+                "Michigan",
+                "Minnesota",
+                "Mississippi",
+                "Missouri",
+                "Montana",
+                "Nebraska",
+                "Nevada",
+                "New Hampshire",
+                "New Jersey",
+                "New Mexico",
+                "New York",
+                "North Carolina",
+                "North Dakota",
+                "Northern Mariana Islands",
+                "Ohio",
+                "Oklahoma",
+                "Oregon",
+                "Pennsylvania",
+                "Puerto Rico",
+                "Rhode Island",
+                "South Carolina",
+                "South Dakota",
+                "Tennessee",
+                "Texas",
+                "Utah",
+                "Vermont",
+                "Virgin Islands",
+                "Virginia",
+                "Washington",
+                "West Virginia",
+                "Wisconsin",
+                "Wyoming"
+              ],
+              "answer": "",
+              "helpText": null,
+              "placeHolder": null,
+              "editable": true,
+              "validationData": [
+                {
+                  "type": 5,
+                  "matchValue": null,
+                  "matchField": null,
+                  "id": null,
+                  "validationText": "Field is required",
+                  "orValidations": null
+                }
+              ],
+              "visibility": null,
+              "refreshClaim": false
+            },
+            {
+              "id": "HospitalLocationZip",
+              "title": "Zip Code",
+              "rowType": 3,
+              "text": null,
+              "answer": "",
+              "helpText": null,
+              "placeHolder": null,
+              "editable": true,
+              "validationData": [
+                {
+                  "type": 0,
+                  "matchValue": "[0-9]{5}(-[0-9]{4})?",
+                  "matchField": null,
+                  "id": null,
+                  "validationText": "Invalid Zip",
+                  "orValidations": null
+                }
+              ],
+              "visibility": null,
+              "refreshClaim": false
+            }
+          ],
+          "helpText": null,
+          "visibility": {
+            "isVisible": true,
+            "condition": [
+              {
+                "type": 1,
+                "matchValue": "Yes",
+                "matchField": "DidHaveHospitalStay",
+                "id": null,
+                "validationText": null,
+                "orValidations": null
+              }
+            ]
+          }
+        },
+        {
+          "id": "HospitalStayDates",
+          "header": null,
+          "footer": null,
+          "rows": [
+            {
+              "id": "HospitalStayAdmitDate",
+              "title": "Admission Date",
+              "rowType": 4,
+              "text": null,
+              "answer": "",
+              "helpText": null,
+              "placeHolder": null,
+              "editable": true,
+              "validationData": [
+                {
+                  "type": 5,
+                  "matchValue": null,
+                  "matchField": null,
+                  "id": null,
+                  "validationText": "A valid date is required.",
+                  "orValidations": null
+                },
+                {
+                  "type": 4,
+                  "matchValue": "2022-05-07T00:00:00",
+                  "matchField": null,
+                  "id": null,
+                  "validationText": "Admission date cannot be in the future.",
+                  "orValidations": null
+                },
+                {
+                  "type": 3,
+                  "matchValue": "2020-05-06T15:16:16",
+                  "matchField": null,
+                  "id": null,
+                  "validationText": "Please verify the hospital admission date. We cannot find an active policy for that date. If you feel this is in error, please call 800-622-1113.",
+                  "orValidations": null
+                }
+              ],
+              "visibility": null,
+              "refreshClaim": false
+            },
+            {
+              "id": "HospitalStayDischargeDate",
+              "title": "Discharge Date",
+              "rowType": 4,
+              "text": null,
+              "answer": "",
+              "helpText": null,
+              "placeHolder": null,
+              "editable": true,
+              "validationData": [
+                {
+                  "type": 5,
+                  "matchValue": null,
+                  "matchField": null,
+                  "id": null,
+                  "validationText": "A valid date is required.",
+                  "orValidations": null
+                },
+                {
+                  "type": 3,
+                  "matchValue": null,
+                  "matchField": "HospitalStayAdmitDate",
+                  "id": null,
+                  "validationText": "Discharge date must come after admit date.",
+                  "orValidations": null
+                },
+                {
+                  "type": 4,
+                  "matchValue": "2022-05-13T00:00:00",
+                  "matchField": null,
+                  "id": null,
+                  "validationText": "Discharge date cannot be in the future",
+                  "orValidations": null
+                }
+              ],
+              "visibility": null,
+              "refreshClaim": false
+            },
+            {
+              "id": "HospitalStayDeliveryNotAlignedWarning",
+              "title": null,
+              "rowType": 7,
+              "text": [
+                "The date of delivery does not fall within the hospital admission and discharge dates"
+              ],
+              "answer": "",
+              "helpText": null,
+              "placeHolder": null,
+              "editable": true,
+              "validationData": null,
+              "visibility": {
+                "isVisible": true,
+                "condition": [
+                  {
+                    "type": 3,
+                    "matchValue": "2022-05-05T00:00:00",
+                    "matchField": "HospitalStayAdmitDate",
+                    "id": null,
+                    "validationText": null,
+                    "orValidations": null
+                  }
+                ]
+              },
+              "refreshClaim": false
+            }
+          ],
+          "helpText": null,
+          "visibility": {
+            "isVisible": true,
+            "condition": [
+              {
+                "type": 1,
+                "matchValue": "Yes",
+                "matchField": "DidHaveHospitalStay",
+                "id": null,
+                "validationText": null,
+                "orValidations": null
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "4. Income & Payments",
+      "id": "IncomeAndPayments1",
+      "progress": 80,
+      "allowSave": true,
+      "sections": [
+        {
+          "id": "IncomePaymentsSalary",
+          "header": "Calculating Your Benefit",
+          "footer": "Please provide the following information so that your benefit, if one is due, may be calculated.",
+          "rows": [
+            {
+              "id": "AnnualSalary",
+              "title": "Your Annual Salary",
+              "rowType": 11,
+              "text": null,
+              "answer": "",
+              "helpText": "Provide your annual salary. Do not include spouse or household income.",
+              "placeHolder": null,
+              "editable": true,
+              "validationData": [
+                {
+                  "type": 5,
+                  "matchValue": null,
+                  "matchField": null,
+                  "id": null,
+                  "validationText": "Field is required",
+                  "orValidations": null
+                }
+              ],
+              "visibility": null,
+              "refreshClaim": false
+            },
+            {
+              "id": "AnnualSalaryConfirm",
+              "title": "My annual salary is correct.",
+              "rowType": 1,
+              "text": null,
+              "answer": "",
+              "helpText": null,
+              "placeHolder": null,
+              "editable": true,
+              "validationData": [
+                {
+                  "type": 1,
+                  "matchValue": "true",
+                  "matchField": null,
+                  "id": null,
+                  "validationText": "Confirmation is required",
+                  "orValidations": null
+                }
+              ],
+              "visibility": {
+                "isVisible": true,
+                "condition": null
+              },
+              "refreshClaim": false
+            }
+          ],
+          "helpText": null,
+          "visibility": null
+        },
+        {
+          "id": "IncomePaymentsSalaryUpload",
+          "header": "Upload",
+          "footer": null,
+          "rows": [
+            {
+              "id": "SalaryUploadWarning",
+              "title": null,
+              "rowType": 10,
+              "text": [
+                "In order for us to accurately process your claim, we will need one of the following two items: recent paystub or employer claim form."
+              ],
+              "answer": "",
+              "helpText": null,
+              "placeHolder": null,
+              "editable": true,
+              "validationData": null,
+              "visibility": null,
+              "refreshClaim": false
+            },
+            {
+              "id": "SalaryUploadClaimFormDownload",
+              "title": "Download Employer Claim Form",
+              "rowType": 12,
+              "text": [
+                "https://americanfidelity.com/media/1180/bn-658-employer-statement.pdf"
+              ],
+              "answer": "",
+              "helpText": null,
+              "placeHolder": null,
+              "editable": true,
+              "validationData": null,
+              "visibility": null,
+              "refreshClaim": false
+            },
+            {
+              "id": "SalaryUploadPaystubAnswer",
+              "title": "1. Recent Paystub",
+              "rowType": 5,
+              "text": [
+                "Upload Paystub",
+                "Paystub is being provided separately.",
+                "I don't have a paystub."
+              ],
+              "answer": "",
+              "helpText": null,
+              "placeHolder": null,
+              "editable": true,
+              "validationData": [
+                {
+                  "type": 5,
+                  "matchValue": null,
+                  "matchField": null,
+                  "id": null,
+                  "validationText": "Field is required",
+                  "orValidations": null
+                }
+              ],
+              "visibility": null,
+              "refreshClaim": false
+            },
+            {
+              "id": "SalaryUploadPaystubFileUpload",
+              "title": "Upload Paystub",
+              "rowType": 8,
+              "text": [
+                "Paystub"
+              ],
+              "answer": "",
+              "helpText": null,
+              "placeHolder": null,
+              "editable": true,
+              "validationData": null,
+              "visibility": {
+                "isVisible": true,
+                "condition": [
+                  {
+                    "type": 1,
+                    "matchValue": "Upload Paystub",
+                    "matchField": "SalaryUploadPaystubAnswer",
+                    "id": null,
+                    "validationText": null,
+                    "orValidations": null
+                  }
+                ]
+              },
+              "refreshClaim": false
+            },
+            {
+              "id": "SalaryUploadClaimFormAnswer",
+              "title": "2. Employer Claim Form",
+              "rowType": 5,
+              "text": [
+                "Upload Employer Claim Form",
+                "Employer Claim Form is being provided separately."
+              ],
+              "answer": "",
+              "helpText": null,
+              "placeHolder": null,
+              "editable": true,
+              "validationData": [
+                {
+                  "type": 5,
+                  "matchValue": null,
+                  "matchField": null,
+                  "id": null,
+                  "validationText": "Field is required",
+                  "orValidations": null
+                }
+              ],
+              "visibility": {
+                "isVisible": true,
+                "condition": [
+                  {
+                    "type": 1,
+                    "matchValue": "I don't have a paystub.",
+                    "matchField": "SalaryUploadPaystubAnswer",
+                    "id": null,
+                    "validationText": null,
+                    "orValidations": null
+                  }
+                ]
+              },
+              "refreshClaim": false
+            },
+            {
+              "id": "SalaryUploadFileUploadClaimForm",
+              "title": "Upload Employer Claim Form",
+              "rowType": 8,
+              "text": [
+                "EmployerClaimForm"
+              ],
+              "answer": "",
+              "helpText": null,
+              "placeHolder": null,
+              "editable": true,
+              "validationData": null,
+              "visibility": {
+                "isVisible": true,
+                "condition": [
+                  {
+                    "type": 1,
+                    "matchValue": "Upload Employer Claim Form",
+                    "matchField": "SalaryUploadClaimFormAnswer",
+                    "id": null,
+                    "validationText": null,
+                    "orValidations": null
+                  }
+                ]
+              },
+              "refreshClaim": false
+            }
+          ],
+          "helpText": null,
+          "visibility": {
+            "isVisible": false,
+            "condition": null
+          }
+        },
+        {
+          "id": "IncomePaymentsCaDaily",
+          "header": "Upload",
+          "footer": null,
+          "rows": [
+            {
+              "id": "CaDailyWarning",
+              "title": null,
+              "rowType": 10,
+              "text": [
+                "Your Disability Policy pays a per day benefit. In order for us to accurately process your claim, we will need the following two items: your school calendar and employer claim form."
+              ],
+              "answer": "",
+              "helpText": null,
+              "placeHolder": null,
+              "editable": true,
+              "validationData": null,
+              "visibility": null,
+              "refreshClaim": false
+            },
+            {
+              "id": "CaDailyUploadSchoolCalAnswer",
+              "title": "1. Your School Calendar",
+              "rowType": 5,
+              "text": [
+                "Upload School Calendar",
+                "School Calendar is being provided separately."
+              ],
+              "answer": "",
+              "helpText": null,
+              "placeHolder": null,
+              "editable": true,
+              "validationData": [
+                {
+                  "type": 5,
+                  "matchValue": null,
+                  "matchField": null,
+                  "id": null,
+                  "validationText": "Field is required",
+                  "orValidations": null
+                }
+              ],
+              "visibility": null,
+              "refreshClaim": false
+            },
+            {
+              "id": "CaDailyFileUploadCalendar",
+              "title": "Upload School Calendar",
+              "rowType": 8,
+              "text": [
+                "Calendar"
+              ],
+              "answer": "",
+              "helpText": null,
+              "placeHolder": null,
+              "editable": true,
+              "validationData": null,
+              "visibility": {
+                "isVisible": true,
+                "condition": [
+                  {
+                    "type": 1,
+                    "matchValue": "Upload School Calendar",
+                    "matchField": "CaDailyUploadSchoolCalAnswer",
+                    "id": null,
+                    "validationText": null,
+                    "orValidations": null
+                  }
+                ]
+              },
+              "refreshClaim": false
+            },
+            {
+              "id": "CaDailyUploadClaimFormAnswer",
+              "title": "2. Employer Claim Form",
+              "rowType": 5,
+              "text": [
+                "Upload Employer Claim Form",
+                "Employer Claim Form is being provided separately."
+              ],
+              "answer": "",
+              "helpText": null,
+              "placeHolder": null,
+              "editable": true,
+              "validationData": [
+                {
+                  "type": 5,
+                  "matchValue": null,
+                  "matchField": null,
+                  "id": null,
+                  "validationText": "Field is required",
+                  "orValidations": null
+                }
+              ],
+              "visibility": null,
+              "refreshClaim": false
+            },
+            {
+              "id": "CaDailyClaimFormDownload",
+              "title": "Download Employer Claim Form",
+              "rowType": 12,
+              "text": [
+                "https://americanfidelity.com/media/1180/bn-658-employer-statement.pdf"
+              ],
+              "answer": "",
+              "helpText": null,
+              "placeHolder": null,
+              "editable": true,
+              "validationData": null,
+              "visibility": null,
+              "refreshClaim": false
+            },
+            {
+              "id": "CaDailyFileUploadClaimForm",
+              "title": "Upload Employer Claim Form",
+              "rowType": 8,
+              "text": [
+                "EmployerClaimForm"
+              ],
+              "answer": "",
+              "helpText": null,
+              "placeHolder": null,
+              "editable": true,
+              "validationData": null,
+              "visibility": {
+                "isVisible": true,
+                "condition": [
+                  {
+                    "type": 1,
+                    "matchValue": "Upload Employer Claim Form",
+                    "matchField": "CaDailyUploadClaimFormAnswer",
+                    "id": null,
+                    "validationText": null,
+                    "orValidations": null
+                  }
+                ]
+              },
+              "refreshClaim": false
+            }
+          ],
+          "helpText": null,
+          "visibility": {
+            "isVisible": false,
+            "condition": null
+          }
+        }
+      ]
+    },
+    {
+      "title": "4. Income & Payments - Other Income",
+      "id": "IncomeAndPayments2",
+      "progress": 80,
+      "allowSave": true,
+      "sections": []
+    },
+    {
+      "title": "4. Income & Payments - Taxes",
+      "id": "IncomeAndPayments3",
+      "progress": 80,
+      "allowSave": true,
+      "sections": [
+        {
+          "id": "IncomePaymentsTaxes",
+          "header": "Taxes",
+          "footer": "NOTE: Per Federal Law, FICA (ex. Medicare and Social Security) taxes may be withheld from your benefit. This is different than Federal Income Taxes.",
+          "rows": [
+            {
+              "id": "TaxesToWithholdWarning",
+              "title": null,
+              "rowType": 10,
+              "text": [
+                "Your benefit may be subject to Federal Income Tax. If you choose to not withhold, your income taxes may be affected at tax time. Choose your withholdings preference below."
+              ],
+              "answer": "",
+              "helpText": null,
+              "placeHolder": null,
+              "editable": true,
+              "validationData": null,
+              "visibility": null,
+              "refreshClaim": false
+            },
+            {
+              "id": "TaxesToWithhold",
+              "title": null,
+              "rowType": 5,
+              "text": [
+                "Don’t withhold income tax",
+                "Monthly Dollar Amount"
+              ],
+              "answer": "",
+              "helpText": null,
+              "placeHolder": null,
+              "editable": true,
+              "validationData": [
+                {
+                  "type": 5,
+                  "matchValue": null,
+                  "matchField": null,
+                  "id": null,
+                  "validationText": "Field is required",
+                  "orValidations": null
+                }
+              ],
+              "visibility": null,
+              "refreshClaim": false
+            },
+            {
+              "id": "TaxesToWithholdOtherAmount",
+              "title": "Amount",
+              "rowType": 3,
+              "text": null,
+              "answer": "",
+              "helpText": null,
+              "placeHolder": null,
+              "editable": true,
+              "validationData": [
+                {
+                  "type": 3,
+                  "matchValue": "87",
+                  "matchField": null,
+                  "id": null,
+                  "validationText": "Amount must be $88 or more a month.",
+                  "orValidations": null
+                }
+              ],
+              "visibility": {
+                "isVisible": true,
+                "condition": [
+                  {
+                    "type": 1,
+                    "matchValue": "Monthly Dollar Amount",
+                    "matchField": "TaxesToWithhold",
+                    "id": null,
+                    "validationText": null,
+                    "orValidations": null
+                  }
+                ]
+              },
+              "refreshClaim": false
+            }
+          ],
+          "helpText": null,
+          "visibility": {
+            "isVisible": false,
+            "condition": null
+          }
+        }
+      ]
+    },
+    {
+      "title": "4. Income & Payments",
+      "id": "DirectDeposit",
+      "progress": 80,
+      "allowSave": true,
+      "sections": [
+        {
+          "id": "DirectDepositInfo",
+          "header": "Direct Deposit - Bank Information",
+          "footer": null,
+          "rows": [
+            {
+              "id": "DdAuthorization",
+              "title": null,
+              "rowType": 0,
+              "text": null,
+              "answer": "",
+              "helpText": null,
+              "placeHolder": null,
+              "editable": true,
+              "validationData": null,
+              "visibility": {
+                "isVisible": false,
+                "condition": null
+              },
+              "refreshClaim": false
+            },
+            {
+              "id": "DdChanged",
+              "title": null,
+              "rowType": 0,
+              "text": null,
+              "answer": "",
+              "helpText": null,
+              "placeHolder": null,
+              "editable": true,
+              "validationData": null,
+              "visibility": {
+                "isVisible": false,
+                "condition": null
+              },
+              "refreshClaim": false
+            }
+          ],
+          "helpText": "I authorize American Fidelity Assurance Company (AF) to initiate deposits to my account. I also authorize AF to debit my account for any deposits made in error. This authorization remains effective and in full force until AF receives notification from me of its termination in such time and manner to give AF and the Depository a reasonable opportunity to act on it.",
+          "visibility": null
+        },
+        {
+          "id": "PaperlessEobInfo",
+          "header": "Paperless Explanation of Benefits (EoBs)",
+          "footer": null,
+          "rows": null,
+          "helpText": "By checking this box, you�re agreeing to receive your EOBs electronically. However, for claims that do not result in a payment, you will still receive a mailed copy of your EOBs. To view your EOBs, visit the My Benefits section and select View Claims.",
+          "visibility": null
+        }
+      ]
+    },
+    {
+      "title": "5. Review & Submit",
+      "id": "ClaimSummary",
+      "progress": 100,
+      "allowSave": true,
+      "sections": [
+        {
+          "id": "ClaimSummaryClaimInfo",
+          "header": null,
+          "footer": null,
+          "rows": [
+            {
+              "id": "ClaimSummaryType",
+              "title": "Delivery Type",
+              "rowType": 9,
+              "text": null,
+              "answer": "DeliveryType",
+              "helpText": null,
+              "placeHolder": null,
+              "editable": true,
+              "validationData": null,
+              "visibility": null,
+              "refreshClaim": false
+            },
+            {
+              "id": "ClaimSummaryDate",
+              "title": "Delivery Date",
+              "rowType": 9,
+              "text": null,
+              "answer": "DeliveryDate",
+              "helpText": null,
+              "placeHolder": null,
+              "editable": true,
+              "validationData": null,
+              "visibility": null,
+              "refreshClaim": false
+            },
+            {
+              "id": "ClaimSummaryReturnToWorkDate",
+              "title": "Return to Work Date",
+              "rowType": 9,
+              "text": null,
+              "answer": "ReturnToWorkDate",
+              "helpText": null,
+              "placeHolder": null,
+              "editable": true,
+              "validationData": null,
+              "visibility": {
+                "isVisible": true,
+                "condition": [
+                  {
+                    "type": 1,
+                    "matchValue": "Yes",
+                    "matchField": "WillReturnToWorkAnswer",
+                    "id": null,
+                    "validationText": null,
+                    "orValidations": null
+                  }
+                ]
+              },
+              "refreshClaim": false
+            },
+            {
+              "id": "ClaimSummaryHospital",
+              "title": "Hospital Name",
+              "rowType": 9,
+              "text": null,
+              "answer": "HospitalLocationName",
+              "helpText": null,
+              "placeHolder": null,
+              "editable": true,
+              "validationData": null,
+              "visibility": {
+                "isVisible": true,
+                "condition": [
+                  {
+                    "type": 1,
+                    "matchValue": "Yes",
+                    "matchField": "DidHaveHospitalStay",
+                    "id": null,
+                    "validationText": null,
+                    "orValidations": null
+                  }
+                ]
+              },
+              "refreshClaim": false
+            }
+          ],
+          "helpText": null,
+          "visibility": null
+        },
+        {
+          "id": "ClaimSummaryUploadWarning",
+          "header": "",
+          "footer": null,
+          "rows": [
+            {
+              "id": null,
+              "title": null,
+              "rowType": 7,
+              "text": [
+                "You have required documents to provide before filing your claim."
+              ],
+              "answer": "",
+              "helpText": null,
+              "placeHolder": null,
+              "editable": true,
+              "validationData": [
+                {
+                  "type": 6,
+                  "matchValue": null,
+                  "matchField": null,
+                  "id": null,
+                  "validationText": null,
+                  "orValidations": null
+                }
+              ],
+              "visibility": null,
+              "refreshClaim": false
+            },
+            {
+              "id": null,
+              "title": null,
+              "rowType": 10,
+              "text": [
+                "If you have those now, or if they have already been provided, click the \"Back\" button and update your claim.\n\nOr, Save this claim for later, and come back to upload when you have them."
+              ],
+              "answer": "",
+              "helpText": null,
+              "placeHolder": null,
+              "editable": true,
+              "validationData": null,
+              "visibility": null,
+              "refreshClaim": false
+            },
+            {
+              "id": "SaveForLaterButton",
+              "title": "Save for Later",
+              "rowType": 6,
+              "text": null,
+              "answer": "",
+              "helpText": null,
+              "placeHolder": null,
+              "editable": true,
+              "validationData": null,
+              "visibility": null,
+              "refreshClaim": false
+            }
+          ],
+          "helpText": null,
+          "visibility": {
+            "isVisible": false,
+            "condition": [
+              {
+                "type": 1,
+                "matchValue": "Upload Paystub",
+                "matchField": "SalaryUploadPaystubAnswer",
+                "id": null,
+                "validationText": null,
+                "orValidations": null
+              },
+              {
+                "type": 1,
+                "matchValue": "",
+                "matchField": "SalaryUploadPaystubFileUpload",
+                "id": null,
+                "validationText": null,
+                "orValidations": null
+              }
+            ]
+          }
+        },
+        {
+          "id": "ClaimSummaryUploadWarning",
+          "header": "",
+          "footer": null,
+          "rows": [
+            {
+              "id": null,
+              "title": null,
+              "rowType": 7,
+              "text": [
+                "You have required documents to provide before filing your claim."
+              ],
+              "answer": "",
+              "helpText": null,
+              "placeHolder": null,
+              "editable": true,
+              "validationData": [
+                {
+                  "type": 6,
+                  "matchValue": null,
+                  "matchField": null,
+                  "id": null,
+                  "validationText": null,
+                  "orValidations": null
+                }
+              ],
+              "visibility": null,
+              "refreshClaim": false
+            },
+            {
+              "id": null,
+              "title": null,
+              "rowType": 10,
+              "text": [
+                "If you have those now, or if they have already been provided, click the \"Back\" button and update your claim.\n\nOr, Save this claim for later, and come back to upload when you have them."
+              ],
+              "answer": "",
+              "helpText": null,
+              "placeHolder": null,
+              "editable": true,
+              "validationData": null,
+              "visibility": null,
+              "refreshClaim": false
+            },
+            {
+              "id": "SaveForLaterButton",
+              "title": "Save for Later",
+              "rowType": 6,
+              "text": null,
+              "answer": "",
+              "helpText": null,
+              "placeHolder": null,
+              "editable": true,
+              "validationData": null,
+              "visibility": null,
+              "refreshClaim": false
+            }
+          ],
+          "helpText": null,
+          "visibility": {
+            "isVisible": false,
+            "condition": [
+              {
+                "type": 1,
+                "matchValue": "I don't have a paystub.",
+                "matchField": "SalaryUploadPaystubAnswer",
+                "id": null,
+                "validationText": null,
+                "orValidations": null
+              },
+              {
+                "type": 1,
+                "matchValue": "Upload Employer Claim Form",
+                "matchField": "SalaryUploadClaimFormAnswer",
+                "id": null,
+                "validationText": null,
+                "orValidations": null
+              },
+              {
+                "type": 1,
+                "matchValue": "",
+                "matchField": "SalaryUploadFileUploadClaimForm",
+                "id": null,
+                "validationText": null,
+                "orValidations": null
+              }
+            ]
+          }
+        },
+        {
+          "id": "ClaimSummaryUploadWarning",
+          "header": "",
+          "footer": null,
+          "rows": [
+            {
+              "id": null,
+              "title": null,
+              "rowType": 7,
+              "text": [
+                "You have required documents to provide before filing your claim."
+              ],
+              "answer": "",
+              "helpText": null,
+              "placeHolder": null,
+              "editable": true,
+              "validationData": [
+                {
+                  "type": 6,
+                  "matchValue": null,
+                  "matchField": null,
+                  "id": null,
+                  "validationText": null,
+                  "orValidations": null
+                }
+              ],
+              "visibility": null,
+              "refreshClaim": false
+            },
+            {
+              "id": null,
+              "title": null,
+              "rowType": 10,
+              "text": [
+                "If you have those now, or if they have already been provided, click the \"Back\" button and update your claim.\n\nOr, Save this claim for later, and come back to upload when you have them."
+              ],
+              "answer": "",
+              "helpText": null,
+              "placeHolder": null,
+              "editable": true,
+              "validationData": null,
+              "visibility": null,
+              "refreshClaim": false
+            },
+            {
+              "id": "SaveForLaterButton",
+              "title": "Save for Later",
+              "rowType": 6,
+              "text": null,
+              "answer": "",
+              "helpText": null,
+              "placeHolder": null,
+              "editable": true,
+              "validationData": null,
+              "visibility": null,
+              "refreshClaim": false
+            }
+          ],
+          "helpText": null,
+          "visibility": {
+            "isVisible": false,
+            "condition": [
+              {
+                "type": 7,
+                "matchValue": null,
+                "matchField": null,
+                "id": null,
+                "validationText": null,
+                "orValidations": [
+                  [
+                    {
+                      "type": 1,
+                      "matchValue": "Upload School Calendar",
+                      "matchField": "CaDailyUploadSchoolCalAnswer",
+                      "id": null,
+                      "validationText": null,
+                      "orValidations": null
+                    },
+                    {
+                      "type": 1,
+                      "matchValue": "",
+                      "matchField": "CaDailyFileUploadCalendar",
+                      "id": null,
+                      "validationText": null,
+                      "orValidations": null
+                    }
+                  ],
+                  [
+                    {
+                      "type": 1,
+                      "matchValue": "Upload Employer Claim Form",
+                      "matchField": "CaDailyUploadClaimFormAnswer",
+                      "id": null,
+                      "validationText": null,
+                      "orValidations": null
+                    },
+                    {
+                      "type": 1,
+                      "matchValue": "",
+                      "matchField": "CaDailyFileUploadClaimForm",
+                      "id": null,
+                      "validationText": null,
+                      "orValidations": null
+                    }
+                  ]
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "ClaimSummaryAddress",
+          "header": "Verify your mailing address:",
+          "footer": null,
+          "rows": [
+            {
+              "id": "AddressSummary",
+              "title": null,
+              "rowType": 10,
+              "text": [
+                null,
+                ",  "
+              ],
+              "answer": "",
+              "helpText": null,
+              "placeHolder": null,
+              "editable": true,
+              "validationData": null,
+              "visibility": null,
+              "refreshClaim": false
+            },
+            {
+              "id": "EditAddress",
+              "title": "Edit Mailing Address",
+              "rowType": 14,
+              "text": null,
+              "answer": "",
+              "helpText": null,
+              "placeHolder": null,
+              "editable": true,
+              "validationData": null,
+              "visibility": null,
+              "refreshClaim": false
+            }
+          ],
+          "helpText": null,
+          "visibility": null
+        },
+        {
+          "id": "ClaimSummaryCommunication",
+          "header": "Receive Claim Notifications",
+          "footer": null,
+          "rows": null,
+          "helpText": null,
+          "visibility": null
+        }
+      ]
+    }
+  ],
+  "fraudLanguage": {
+    "esig": "I acknowledge that I have read and understand the fraud information provided above and wish to continue with the electronic claim filing process. I understand that I must complete the process in order for my claim to be filed. To the best of my knowledge and belief, all of the information I have provided or that I provide during this electronic claim filing process is true and correct.",
+    "esigEob": "I understand that if I have direct deposit, my explanation of benefits (EoBs) will not be mailed to me. I am able to check claim status and view EoBs on this website.",
+    "esigProvider": "I authorize the Provider(s) listed on my claim form to validate the information I have provided.",
+    "stateName": null,
+    "stateStyle": null,
+    "verbiage": null,
+    "verbiageStyle": null,
+    "fontSize": null,
+    "font": null
+  },
+  "version": "1",
+  "created": "2022-05-06T15:16:16.0566572-05:00",
+  "interview": "PREG",
+  "claimId": "602e03a2-5584-45b9-b221-ba6a18de85b1",
+  "savedStep": null
+}

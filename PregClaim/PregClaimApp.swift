@@ -11,7 +11,9 @@ import SwiftUI
 struct PregClaimApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            //NavigationView {
+                UIClaimView(claimVM: UIClaimTemplateViewModel(claimTemplate: UIClaimView_Previews.uiClaimTemplate))
+            //}
         }
     }
 }
